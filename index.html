@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduFaculty | Direct & Verified Hiring Network for Teachers and Schools</title>
+  <meta name="description" content="India's verified direct teaching job network. 100% verified schools & coaching institutes. Zero middleman consultancy. Direct teacher hiring.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=2.0.0">
+</head>
+<body>
+  <!-- Header / Navigation -->
+  <header class="site-header">
+    <div class="container header-container">
+      <div class="brand-group">
+        <a href="#" class="logo" id="logoBtn">
+          <div class="logo-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+              <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+            </svg>
+          </div>
+          <div class="logo-text">
+            <span class="logo-title">Edu<span class="brand-accent">Faculty</span></span>
+            <span class="logo-badge">Verified Teaching Network</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Main Portal Mode Switcher -->
+      <div class="portal-mode-toggle" id="modeSwitcher">
+        <button type="button" class="mode-tab active" data-mode="jobs" id="tabFindJobs">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span>Find Teaching Jobs</span>
+        </button>
+        <button type="button" class="mode-tab" data-mode="candidates" id="tabHireTeachers">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          <span>Hire Verified Teachers</span>
+        </button>
+      </div>
+
+      <!-- Action Buttons & User Status -->
+      <div class="header-actions">
+        <!-- Logged In User State -->
+        <div class="user-auth-panel" id="userAuthPanel" style="display: none;">
+          <button class="btn btn-sm btn-dashboard" id="btnOpenDashboard">
+            <span class="user-role-dot"></span>
+            <span id="userAuthName">My Dashboard</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"></path></svg>
+          </button>
+          <button class="btn-logout" id="btnLogout" title="Log out">Logout</button>
+        </div>
+
+        <!-- Logged Out State -->
+        <button class="btn btn-text" id="btnOpenLogin">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path><polyline points="10 17 15 12 10 7"></polyline><line x1="15" y1="12" x2="3" y2="12"></line></svg>
+          <span>Log In</span>
+        </button>
+
+        <button class="btn btn-outline" id="btnOpenTeacherProfile">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          <span>Register as Teacher</span>
+        </button>
+        <button class="btn btn-primary" id="btnOpenPostJob">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"></path></svg>
+          <span>Post School Vacancy</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container hero-container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="shield-icon">🛡️</span>
+          <span>100% Anti-Spam Verified: Zero Placement Agencies • Direct School Management Only</span>
+        </div>
+        <h1 class="hero-title" id="heroTitle">
+          India's Premier <span class="highlight-text">Verified Network</span> for Educators
+        </h1>
+        <p class="hero-subtitle" id="heroSubtitle">
+          Direct recruitment between verified school principals and certified teachers. Every institution is authenticated via official website & affiliation records.
+        </p>
+
+        <!-- Search Bar -->
+        <div class="search-box-card">
+          <div class="search-fields">
+            <div class="search-field">
+              <svg class="field-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <input type="text" id="searchInput" placeholder="Search Subject (e.g. Mathematics, Physics, English, Computer)...">
+            </div>
+            <div class="field-divider"></div>
+            <div class="search-field">
+              <svg class="field-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <select id="locationSelect">
+                <option value="">All Locations / Cities</option>
+                <option value="Bangalore">Bangalore (Bengaluru)</option>
+                <option value="Delhi NCR">Delhi NCR / Noida / Gurgaon</option>
+                <option value="Mumbai">Mumbai / Thane / Navi Mumbai</option>
+                <option value="Hyderabad">Hyderabad / Secunderabad</option>
+                <option value="Pune">Pune / Pimpri</option>
+                <option value="Chennai">Chennai</option>
+                <option value="Kolkata">Kolkata</option>
+                <option value="Remote">Online / Remote Classes</option>
+              </select>
+            </div>
+            <div class="field-divider"></div>
+            <div class="search-field">
+              <svg class="field-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+              <select id="gradeSelect">
+                <option value="">All Roles / Grades</option>
+                <option value="PRT">Primary Teacher (PRT / Grades 1-5)</option>
+                <option value="TGT">Trained Graduate (TGT / Grades 6-10)</option>
+                <option value="PGT">Post Graduate (PGT / Grades 11-12)</option>
+                <option value="Pre-Primary">Pre-Primary / Montessori / KG</option>
+                <option value="Coaching">JEE / NEET / IIT Faculty</option>
+                <option value="Principal">Vice Principal / Principal / HOD</option>
+                <option value="Tutor">Home & Private Tutor</option>
+              </select>
+            </div>
+            <button class="btn btn-search" id="btnFilterSearch">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <span>Search</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Quick Filter Tags -->
+        <div class="quick-tags-wrapper">
+          <span class="tags-label">Popular Filters:</span>
+          <div class="quick-tags" id="quickTags">
+            <button class="tag-pill active" data-filter="all">All</button>
+            <button class="tag-pill" data-filter="CBSE">CBSE</button>
+            <button class="tag-pill" data-filter="ICSE">ICSE</button>
+            <button class="tag-pill" data-filter="Mathematics">Maths</button>
+            <button class="tag-pill" data-filter="Science">Science / Physics</button>
+            <button class="tag-pill" data-filter="English">English</button>
+            <button class="tag-pill" data-filter="Computer">Computer / Coding</button>
+            <button class="tag-pill" data-filter="Urgent">🔥 Urgent Hiring</button>
+            <button class="tag-pill" data-filter="Accomodation">🏠 Free Food & Stay</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Trust Stats Banner with Anti-Spam Metrics -->
+      <div class="trust-stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">100%</div>
+          <div class="stat-desc">Website & Affiliation Verified Schools</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">0%</div>
+          <div class="stat-desc">Commission / Zero Third-Party Agencies</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">4,800+</div>
+          <div class="stat-desc">Phone & Email Verified Teachers</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">⚡ Direct</div>
+          <div class="stat-desc">Official WhatsApp & HR Calling</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Feed Area -->
+  <main class="container main-content">
+    <div class="content-header">
+      <div class="header-left">
+        <h2 class="section-title" id="feedTitle">Latest Verified School Vacancies</h2>
+        <span class="results-count" id="resultsCount">Showing verified opportunities</span>
+      </div>
+      <div class="header-right">
+        <label for="sortSelect" class="sort-label">Sort by:</label>
+        <select id="sortSelect" class="sort-select">
+          <option value="recent">Most Recent</option>
+          <option value="salaryHigh">Highest Salary</option>
+          <option value="urgent">Urgent Openings</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Listings Container -->
+    <div class="feed-grid" id="listingsContainer">
+      <!-- Dynamic cards rendered by JS -->
+    </div>
+
+    <!-- Empty State -->
+    <div class="empty-state" id="emptyState" style="display: none;">
+      <div class="empty-icon">🔍</div>
+      <h3>No matching listings found</h3>
+      <p>Try clearing your filters or searching for a different subject or city.</p>
+      <button class="btn btn-outline" id="btnResetFilters">Reset All Filters</button>
+    </div>
+  </main>
+
+  <!-- Mobile Bottom Bar -->
+  <div class="mobile-bottom-bar">
+    <button class="mobile-nav-btn active" id="mobileTabJobs">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"></path></svg>
+      <span>Jobs</span>
+    </button>
+    <button class="mobile-nav-btn" id="mobileTabCandidates">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+      <span>Teachers</span>
+    </button>
+    <button class="mobile-nav-btn post-action" id="mobileBtnAction">
+      <div class="mobile-plus-icon">+</div>
+      <span>Action</span>
+    </button>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: TEACHER REGISTRATION & DUAL VERIFICATION (Phone + Email OTP)        -->
+  <!-- ========================================================================= -->
+  <div class="modal-backdrop" id="modalTeacherFlow" style="display: none;">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title" id="teacherModalTitle">Teacher Registration & Verification</h3>
+          <p class="modal-subtitle" id="teacherModalSubtitle">Step 1 of 2: Verify your phone & email to prevent duplicate and spam profiles</p>
+        </div>
+        <button class="modal-close" data-close="modalTeacherFlow">&times;</button>
+      </div>
+
+      <!-- Step 1: Teacher Contact & OTP Verification -->
+      <div id="teacherStep1" class="modal-body">
+        <div class="verification-notice-box">
+          <div class="notice-icon">🔒</div>
+          <div class="notice-text">
+            <strong>Mandatory Identity Verification:</strong> All teacher candidates must verify their mobile number and email address before publishing their profile to ensure trusted school outreach.
+          </div>
+        </div>
+
+        <form id="formTeacherVerify">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Full Name *</label>
+              <input type="text" id="tRegName" required placeholder="e.g. Ananya Deshmukh">
+            </div>
+            <div class="form-group">
+              <label>Current City *</label>
+              <input type="text" id="tRegCity" required placeholder="e.g. Bangalore, Pune, Delhi">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Mobile Number (For School HR WhatsApp & Calls) *</label>
+              <input type="tel" id="tRegPhone" required placeholder="e.g. 9876543210 (10 digits)" maxlength="10">
+              <span class="field-hint">Schools will directly reach you on this number</span>
+            </div>
+            <div class="form-group">
+              <label>Email Address (For Verification) *</label>
+              <div class="input-with-button">
+                <input type="email" id="tRegEmail" required placeholder="e.g. ananya.teacher@gmail.com">
+                <button type="button" class="btn-input-action" id="btnSendEmailOTP">Send OTP</button>
+              </div>
+              <span class="field-hint" id="emailOtpStatus">Real OTP will be sent to your inbox</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>6-Digit Email Verification Code *</label>
+            <input type="text" id="tEmailOtpInput" required placeholder="Enter 6-digit code received in email" maxlength="6">
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline" data-close="modalTeacherFlow">Cancel</button>
+            <button type="submit" class="btn btn-primary" id="btnVerifyTeacherCredentials">Verify & Continue to Profile &rarr;</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Step 2: Complete Teacher Profile -->
+      <div id="teacherStep2" class="modal-body" style="display: none;">
+        <div class="verified-badge-banner">
+          <span class="badge-icon">✓</span>
+          <span><strong>Phone & Email Verified:</strong> Now enter your teaching credentials to appear in the school talent directory.</span>
+        </div>
+
+        <form id="formTeacherProfile">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Primary Subject Taught *</label>
+              <input type="text" id="teacherSubject" required placeholder="e.g. Mathematics, Physics, English">
+            </div>
+            <div class="form-group">
+              <label>Highest Qualification *</label>
+              <input type="text" id="teacherQualification" required placeholder="e.g. M.Sc (Maths), B.Ed, CTET Qualified">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Total Teaching Experience *</label>
+              <select id="teacherExpSelect" required>
+                <option value="Fresher (Passout)">Fresher (0 years)</option>
+                <option value="1-2 Years">1 - 2 Years</option>
+                <option value="3-5 Years">3 - 5 Years</option>
+                <option value="6-10 Years">6 - 10 Years</option>
+                <option value="10+ Years">10+ Years Senior</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Preferred Classes / Grade Level *</label>
+              <select id="teacherPreferredGrade" required>
+                <option value="PGT (Grades 11-12)">PGT (Grades 11-12)</option>
+                <option value="TGT (Grades 6-10)">TGT (Grades 6-10)</option>
+                <option value="PRT (Primary Grades 1-5)">PRT (Primary Grades 1-5)</option>
+                <option value="Pre-Primary / Kindergarten">Pre-Primary / Kindergarten</option>
+                <option value="IIT-JEE / NEET Coaching">IIT-JEE / NEET Coaching</option>
+                <option value="Home Tuition / Private">Home Tuition / Private</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Expected Monthly Salary (INR)</label>
+              <input type="text" id="teacherSalaryExpectation" placeholder="e.g. ₹45,000 / month">
+            </div>
+            <div class="form-group">
+              <label>Availability for Demo Class & Joining</label>
+              <select id="teacherAvailability">
+                <option value="Immediate Joiner">Immediate Joiner (Within 7 days)</option>
+                <option value="15 Days Notice">15 Days Notice Period</option>
+                <option value="30 Days Notice">1 Month Notice Period</option>
+                <option value="Next Academic Session">For Next Academic Session</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Teaching Strengths & Board Experience</label>
+            <textarea id="teacherBio" rows="3" placeholder="Mention curriculum experience (CBSE/ICSE), board pass rates, demo class topics..."></textarea>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline" id="btnBackToTeacherStep1">&larr; Back</button>
+            <button type="submit" class="btn btn-primary">Publish Verified Teacher Profile</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: RECRUITER REGISTRATION & RIGOROUS ANTI-SPAM INSTITUTION VERIFICATION -->
+  <!-- ========================================================================= -->
+  <div class="modal-backdrop" id="modalRecruiterFlow" style="display: none;">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title" id="recruiterModalTitle">Recruiter & Institution Verification</h3>
+          <p class="modal-subtitle" id="recruiterModalSubtitle">Step 1 of 2: Authenticate official school identity (Strict anti-middleman policy)</p>
+        </div>
+        <button class="modal-close" data-close="modalRecruiterFlow">&times;</button>
+      </div>
+
+      <!-- Step 1: Anti-Spam Institution Verification -->
+      <div id="recruiterStep1" class="modal-body">
+        <div class="anti-middleman-warning">
+          <div class="warning-header">
+            <span class="warning-icon">⛔</span>
+            <strong>Strict Anti-Middleman & Anti-Spam Policy:</strong>
+          </div>
+          <p>
+            Placement consultancies, commercial broker agencies, and commission middlemen are <strong>strictly forbidden</strong>. Only direct school principals, trustees, and authorized HR personnel are permitted to post vacancies.
+          </p>
+        </div>
+
+        <form id="formRecruiterVerify">
+          <div class="form-row">
+            <div class="form-group">
+              <label>School / Institution Name *</label>
+              <input type="text" id="rRegSchoolName" required placeholder="e.g. Delhi Public School, Apex Academy">
+            </div>
+            <div class="form-group">
+              <label>Institution Type *</label>
+              <select id="rRegInstType" required>
+                <option value="CBSE Affiliated School">CBSE Affiliated School</option>
+                <option value="ICSE / ISC School">ICSE / ISC School</option>
+                <option value="State Board School">State Board School</option>
+                <option value="International / IB / Cambridge">International / IB / Cambridge</option>
+                <option value="JEE / NEET Coaching Institute">JEE / NEET Coaching Institute</option>
+                <option value="Reputed Pre-School / Kindergarten">Reputed Pre-School / Kindergarten</option>
+                <option value="Degree College / University">Degree College / University</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- THE EXTRA VERIFICATION STEP REQUESTED BY USER -->
+          <div class="verification-box-highlight">
+            <h4 class="highlight-title">🏫 Mandatory School Authentication</h4>
+            <p class="highlight-desc">Provide either your official school domain website OR your government affiliation code to verify genuine institution ownership.</p>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Official School Website URL *</label>
+                <input type="url" id="rSchoolWebsite" required placeholder="https://www.yourschool.edu.in (or .org / .com)">
+                <span class="field-hint">Must be the school's official public domain</span>
+              </div>
+              <div class="form-group">
+                <label>Affiliation / UDISE+ / Govt Registration Code *</label>
+                <input type="text" id="rAffiliationCode" required placeholder="e.g. CBSE: 1930284 or UDISE: 29280602301">
+                <span class="field-hint">Verified against public school registries</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Official School HR Phone Number (For Teacher Calls) *</label>
+              <input type="tel" id="rRegPhone" required placeholder="e.g. 9845012345 (10 digits)" maxlength="10">
+              <span class="field-hint">Teachers will directly call & WhatsApp on this number</span>
+            </div>
+            <div class="form-group">
+              <label>Official Institutional Email (For Verification) *</label>
+              <div class="input-with-button">
+                <input type="email" id="rRegEmail" required placeholder="hr@yourschool.edu.in (or principal@...)">
+                <button type="button" class="btn-input-action" id="btnSendRecruiterEmailOTP">Send OTP</button>
+              </div>
+              <span class="field-hint" id="rEmailOtpStatus">Real OTP sent to institutional inbox</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>6-Digit Email Verification Code *</label>
+            <input type="text" id="rEmailOtpInput" required placeholder="Enter 6-digit code received in school email" maxlength="6">
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline" data-close="modalRecruiterFlow">Cancel</button>
+            <button type="submit" class="btn btn-primary" id="btnVerifySchoolCredentials">Authenticate School & Continue &rarr;</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Step 2: Post Job Details (Only accessible after school authentication) -->
+      <div id="recruiterStep2" class="modal-body" style="display: none;">
+        <div class="verified-badge-banner">
+          <span class="badge-icon">✓</span>
+          <span><strong>Institution Authenticated:</strong> <span id="verifiedSchoolNameDisplay">School</span> (Domain & Affiliation Verified)</span>
+        </div>
+
+        <form id="formPostJob">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Job Title / Vacancy Role *</label>
+              <input type="text" id="jobTitle" required placeholder="e.g. PGT Mathematics Teacher">
+            </div>
+            <div class="form-group">
+              <label>Primary Subject *</label>
+              <input type="text" id="jobSubject" required placeholder="e.g. Mathematics, Physics, Chemistry">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Target Class / Grade Level *</label>
+              <select id="jobGradeLevel" required>
+                <option value="PGT (Grades 11-12)">PGT (Grades 11-12)</option>
+                <option value="TGT (Grades 6-10)">TGT (Grades 6-10)</option>
+                <option value="PRT (Grades 1-5)">PRT (Primary / Grades 1-5)</option>
+                <option value="Pre-Primary / KG">Pre-Primary / Montessori</option>
+                <option value="NEET / JEE Faculty">NEET / JEE Exam Faculty</option>
+                <option value="College Lecturer">College Lecturer</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Minimum Experience Required</label>
+              <select id="jobExperience">
+                <option value="Freshers Welcome">Freshers Welcome (0-1 yrs)</option>
+                <option value="1-3 Years">1 - 3 Years</option>
+                <option value="3-5 Years">3 - 5 Years</option>
+                <option value="5+ Years">5+ Years Senior Teacher</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Campus City & Locality *</label>
+              <input type="text" id="jobCity" required placeholder="e.g. Bangalore (Whitefield), Delhi (Rohini)">
+            </div>
+            <div class="form-group">
+              <label>Monthly Salary (INR) *</label>
+              <input type="text" id="jobSalary" required placeholder="e.g. ₹40,000 - ₹55,000 / month">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>School Benefits & Facilities</label>
+            <div class="checkbox-group">
+              <label class="check-item"><input type="checkbox" id="perkStay"> Free Accommodation / Staff Quarters</label>
+              <label class="check-item"><input type="checkbox" id="perkFood"> Free Lunch / Mess Meals</label>
+              <label class="check-item"><input type="checkbox" id="perkCab"> Free School Bus Transport</label>
+              <label class="check-item"><input type="checkbox" id="perkPF"> PF & Medical ESI</label>
+              <label class="check-item"><input type="checkbox" id="isUrgent"> Mark as URGENT Vacancy</label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Job Description & Interview Details</label>
+            <textarea id="jobDescription" rows="3" placeholder="Mention demo class requirements, qualification criteria (B.Ed/CTET), joining date..."></textarea>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline" id="btnBackToRecruiterStep1">&larr; Back</button>
+            <button type="submit" class="btn btn-primary">Publish Verified School Vacancy</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: LOGIN / SIGN IN (Email OTP)                                        -->
+  <!-- ========================================================================= -->
+  <div class="modal-backdrop" id="modalLogin" style="display: none;">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title">Log In to EduFaculty</h3>
+          <p class="modal-subtitle">Access your verified dashboard & manage postings</p>
+        </div>
+        <button class="modal-close" data-close="modalLogin">&times;</button>
+      </div>
+      <div class="modal-body">
+        <!-- Role selector for login -->
+        <div class="login-role-tabs">
+          <button type="button" class="login-role-btn active" id="loginRoleTeacher" data-role="teacher">🎓 As Teacher</button>
+          <button type="button" class="login-role-btn" id="loginRoleSchool" data-role="school">🏫 As School HR</button>
+        </div>
+
+        <form id="formLogin">
+          <div class="form-group">
+            <label id="loginIdentifierLabel">Registered Email Address *</label>
+            <div class="input-with-button">
+              <input type="email" id="loginIdentifier" required placeholder="e.g. yourname@gmail.com or hr@school.edu.in">
+              <button type="button" class="btn-input-action" id="btnSendLoginOTP">Send OTP</button>
+            </div>
+            <span class="field-hint" id="loginOtpStatus">6-digit OTP will be sent to your email inbox</span>
+          </div>
+
+          <div class="form-group">
+            <label>6-Digit Email Verification Code *</label>
+            <input type="text" id="loginOtpInput" required placeholder="Enter 6-digit code received in email" maxlength="6">
+          </div>
+
+          <div class="modal-footer" style="padding-top:12px; margin-top:12px;">
+            <button type="button" class="btn btn-outline" data-close="modalLogin">Cancel</button>
+            <button type="submit" class="btn btn-primary" style="width:100%">Verify & Log In</button>
+          </div>
+        </form>
+
+        <div class="login-switch-footer">
+          <span>New to EduFaculty?</span>
+          <button type="button" class="link-btn" id="btnSwitchToRegister">Create Free Verified Account</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: MY DASHBOARD (DEDICATED MANAGEMENT AREA)                           -->
+  <!-- ========================================================================= -->
+  <div class="modal-backdrop" id="modalDashboard" style="display: none;">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="dashboard-header-info">
+          <h3 class="modal-title" id="dashTitle">My Dashboard</h3>
+          <span class="dashboard-verified-pill" id="dashRolePill">✓ Verified Account</span>
+        </div>
+        <button class="modal-close" data-close="modalDashboard">&times;</button>
+      </div>
+      <div class="modal-body">
+        <!-- Rendered dynamically for Teacher or School -->
+        <div id="dashContent">
+          <!-- Dynamic Content by JS -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: EDIT SCHOOL PROFILE                                                -->
+  <!-- ========================================================================= -->
+  <div class="modal-backdrop" id="modalEditSchoolProfile" style="display: none;">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title">Edit School Profile</h3>
+          <p class="modal-subtitle">Update your official institution details and contact numbers</p>
+        </div>
+        <button class="modal-close" data-close="modalEditSchoolProfile">&times;</button>
+      </div>
+      <form id="formEditSchoolProfile" class="modal-body">
+        <div class="form-row">
+          <div class="form-group">
+            <label>School / Institution Name *</label>
+            <input type="text" id="editSchoolName" required>
+          </div>
+          <div class="form-group">
+            <label>Institution Type *</label>
+            <select id="editSchoolType" required>
+              <option value="CBSE Affiliated School">CBSE Affiliated School</option>
+              <option value="ICSE / ISC School">ICSE / ISC School</option>
+              <option value="State Board School">State Board School</option>
+              <option value="International / IB / Cambridge">International / IB / Cambridge</option>
+              <option value="JEE / NEET Coaching Institute">JEE / NEET Coaching Institute</option>
+              <option value="Reputed Pre-School / Kindergarten">Reputed Pre-School / Kindergarten</option>
+              <option value="Degree College / University">Degree College / University</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Official Website URL *</label>
+            <input type="url" id="editSchoolWebsite" required placeholder="https://www.yourschool.edu.in">
+          </div>
+          <div class="form-group">
+            <label>Affiliation / UDISE Code *</label>
+            <input type="text" id="editSchoolAffiliation" required placeholder="e.g. CBSE: 1930284">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Campus City & Area *</label>
+            <input type="text" id="editSchoolCity" required placeholder="e.g. Bangalore (Whitefield)">
+          </div>
+          <div class="form-group">
+            <label>Official HR Mobile / WhatsApp *</label>
+            <input type="tel" id="editSchoolPhone" required placeholder="e.g. 9845012345" maxlength="10">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Official HR Email Address *</label>
+          <input type="email" id="editSchoolEmail" required placeholder="e.g. hr@yourschool.edu.in">
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" data-close="modalEditSchoolProfile">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Profile Changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Direct Call / Contact Confirmation Modal -->
+  <div class="modal-backdrop" id="modalContactInfo" style="display: none;">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-header">
+        <h3 class="modal-title" id="contactModalTitle">Direct Contact</h3>
+        <button class="modal-close" data-close="modalContactInfo">&times;</button>
+      </div>
+      <div class="modal-body text-center">
+        <div class="contact-badge-icon">🛡️</div>
+        <h4 id="contactOrgName" class="contact-org-title">School Name</h4>
+        <p id="contactRoleDesc" class="contact-role-sub">PGT Mathematics Teacher Opening</p>
+        
+        <div class="verification-pill-tag">
+          <span class="v-tick">✓</span> <span id="contactVerificationText">Domain & Affiliation Verified Institution</span>
+        </div>
+
+        <div class="contact-numbers-card">
+          <div class="contact-row">
+            <span class="contact-label">Verified Mobile:</span>
+            <span class="contact-val" id="contactDisplayPhone">+91 98765 43210</span>
+          </div>
+          <div class="contact-row">
+            <span class="contact-label">Official WhatsApp:</span>
+            <span class="contact-val" id="contactDisplayWhatsapp">+91 98765 43210</span>
+          </div>
+          <div class="contact-row" id="contactWebsiteRow" style="display: none;">
+            <span class="contact-label">School Website:</span>
+            <a href="#" target="_blank" rel="noopener noreferrer" class="contact-link" id="contactDisplayWebsite">Visit Site</a>
+          </div>
+        </div>
+
+        <div class="contact-actions-grid">
+          <a href="#" id="btnDirectCall" class="btn btn-call">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span>Call Now</span>
+          </a>
+          <a href="#" id="btnDirectWhatsapp" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+            <span>WhatsApp</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <div class="logo-title">Edu<span class="brand-accent">Faculty</span></div>
+        <p>India's dedicated verified recruitment network connecting school managements and qualified educators directly.</p>
+        <div class="footer-note">🛡️ Zero Placement Agents • Verified School Authenticity</div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>For Teachers</h4>
+          <a href="#" id="footerLinkCBSE">CBSE Teacher Vacancies</a>
+          <a href="#" id="footerLinkICSE">ICSE Teacher Vacancies</a>
+          <a href="#" id="footerLinkCoaching">NEET / JEE Faculty</a>
+          <a href="#" id="footerLinkRegister">Register Verified Bio</a>
+        </div>
+        <div class="footer-col">
+          <h4>For School Managements</h4>
+          <a href="#" id="footerLinkPost">Post Verified Vacancy</a>
+          <a href="#" id="footerLinkCandidates">Search Teacher Profiles</a>
+          <a href="#" id="footerLinkPolicy">Anti-Middleman Policy</a>
+        </div>
+        <div class="footer-col">
+          <h4>Key Hubs</h4>
+          <span>Bangalore • Delhi NCR • Mumbai</span>
+          <span>Hyderabad • Pune • Chennai • Kolkata</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 EduFaculty. Dedicated Direct Recruitment for Academic Institutions.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js?v=2.0.0"></script>
+</body>
+</html>

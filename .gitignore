@@ -1,0 +1,10 @@
+﻿# Temporary / Build artifacts
+*.zip
+*.log
+.DS_Store
+Thumbs.db
+node_modules/
+
+# Cache directories
+api/cache/
+.edufaculty_otps/
